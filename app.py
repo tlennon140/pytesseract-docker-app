@@ -18,8 +18,8 @@ def ocr():
     bucket_name = "hact-reports"
     #bucket_name = "prodocs"
 
-    objects = client.list_objects(bucket_name)
+    objects = client.list_objects(bucket_name, recursive=True)
     for obj in objects:
-        print(obj)
+        print(obj.object_name)
 
     return pytesseract.image_to_string(Image.open('test.png'))
