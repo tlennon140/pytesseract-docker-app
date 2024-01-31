@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from PIL import Image
 import pytesseract
@@ -10,8 +11,8 @@ def ocr():
     # test.png from the pytesseract project: https://github.com/madmaze/pytesseract/tree/master/tests/data
     
     client = Minio("minio-server-lrgd.onrender.com",
-        access_key="vG+Csz1r01GQJPlHR6rybVB/1UpJ6iN/UEI75X48Kgw=",
-        secret_key="bdklcAgSv2W9OLic7eelfdWcu/tQjuONKoWtp47P35s=",
+        access_key=os.environ.get("MINIO_ACCESS_KEY"),
+        secret_key=os.environ.get("MINIO_SECRET_KEY"),
     )
 
     bucket_name = "hact-reports"
