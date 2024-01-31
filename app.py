@@ -1,4 +1,6 @@
 import os
+import io
+from pdf2image import convert_from_bytes
 from flask import Flask
 from PIL import Image
 import pytesseract
