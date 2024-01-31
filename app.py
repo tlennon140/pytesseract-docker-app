@@ -19,6 +19,7 @@ def ocr():
 
     bucket_name = "hact-reports"
     #bucket_name = "prodocs"
+    processed_bucket_name = "processed-hact-reports"
 
     total_pdfs = sum(1 for obj in client.list_objects(bucket_name, recursive=True) if obj.object_name.endswith(".pdf"))
     processed_pdfs_count = 0  # Assuming starting from 0
